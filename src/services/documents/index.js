@@ -5,4 +5,9 @@ export default class DocumentsManager {
     const response = await API.get('/documents');
     return response.data;
   }
+
+  static async showDocument(id) {
+    const response = await API.get(`/documents/${id}`);
+    return response.data;
+  }
 }

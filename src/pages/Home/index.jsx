@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { DocumentsManager } from '../../services';
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Card style={{ width: '25rem' }} className="mx-auto mt-5">
+    <Card style={{ width: '25rem' }} className="mx-auto mt-5 border border-warning">
       { isFetched && (
       <Card.Body>
         <Card.Title className="mb-3 text-center">
@@ -23,7 +24,7 @@ const Home = () => {
           {nbDocuments.length}
         </Card.Title>
         <div className="d-flex flex-wrap">
-          {nbDocuments.map((element) => <Button key={element.id} variant="info" className="w-100 mb-3">{element.title}</Button>)}
+          {nbDocuments.map((element) => <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3"><Button key={element.id} variant="warning">{element.title}</Button></Link>)}
         </div>
         <Button variant="success" className="float-end">+</Button>
       </Card.Body>

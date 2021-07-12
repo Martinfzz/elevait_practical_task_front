@@ -1,9 +1,6 @@
-import UserManager from "./user";
-import UiManager from "./ui";
-import MealsManager from "./meals";
-import QuantitiesManager from "./quantities";
+/* eslint-disable import/prefer-default-export */
+import DocumentsManager from './documents';
 
-// eslint-disable-next-line import/prefer-default-export
 export {
-  UserManager, UiManager, MealsManager, QuantitiesManager,
+  DocumentsManager,
 };

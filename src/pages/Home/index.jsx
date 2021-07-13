@@ -57,7 +57,7 @@ const Home = () => {
               </Link>
             ))}
           </div>
-          <Button variant="success" className="float-right rounded-circle" onClick={handleClick}>+</Button>
+          <Button variant="success" className="float-right rounded-circle mt-5" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
         <CreateDocument

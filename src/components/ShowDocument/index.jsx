@@ -50,12 +50,12 @@ const ShowDocument = ({ showPages }) => {
             {documentInfos.title}
           </Card.Title>
           <Card.Text>
-            author:
+            Author:
             {' '}
             {documentInfos.author}
           </Card.Text>
           <Card.Text>
-            date:
+            Date:
             {' '}
             {strftime('%F', new Date(documentInfos.dateCreated))}
           </Card.Text>

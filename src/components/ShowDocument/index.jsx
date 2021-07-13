@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import strftime from 'strftime';
 import { PagesManager, DocumentsManager } from '../../services';
 import CreatePage from '../CreatePage';
 
@@ -56,7 +57,7 @@ const ShowDocument = ({ showPages }) => {
           <Card.Text>
             date:
             {' '}
-            {documentInfos.dateCreated}
+            {strftime('%F', new Date(documentInfos.dateCreated))}
           </Card.Text>
           <Card.Text>
             Pages:

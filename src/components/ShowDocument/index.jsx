@@ -66,18 +66,18 @@ const ShowDocument = ({ showPages }) => {
             Pages:
             <br />
             <br />
-            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info" className="mr-2">{element.pageNr}</Button></Link>)}
+            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }} key={element.id}><Button variant="info" className="mr-2">{element.pageNr}</Button></Link>)}
           </Card.Text>
           {showPages && <Button variant="success" className="float-right rounded-circle" onClick={handleClick}>+</Button>}
         </Card.Body>
-        {createPage && (
-        <CreatePage
-          submitCreatePage={handleSubmitCreatePage}
-          show={createPage}
-          onHide={handleCancelCreatePage}
-        />
-        )}
       </Card>
+      {createPage && (
+      <CreatePage
+        submitCreatePage={handleSubmitCreatePage}
+        show={createPage}
+        onHide={handleCancelCreatePage}
+      />
+      )}
     </div>
   );
 };

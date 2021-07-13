@@ -70,7 +70,8 @@ const ShowDocument = ({ showPages }) => {
         {createPage && (
         <CreatePage
           submitCreatePage={handleSubmitCreatePage}
-          cancelCreatePage={handleCancelCreatePage}
+          show={createPage}
+          onHide={handleCancelCreatePage}
         />
         )}
       </Card>

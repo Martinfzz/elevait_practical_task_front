@@ -2,9 +2,7 @@
 import React from 'react';
 import { Form, Button, Modal } from 'react-bootstrap';
 
-const CreateDocument = ({
-  submitCreateDocument, show, onHide,
-}) => (
+const CreateDocument = ({ submitCreateDocument, show, onHide }) => (
   <div id="createDocument">
     <Modal
       show={show}
@@ -27,7 +25,7 @@ const CreateDocument = ({
           <Form.Control type="date" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="float-right my-5">
+        <Button variant="primary" type="submit" className="float-right my-3">
           Create
         </Button>
       </Form>

@@ -10,4 +10,9 @@ export default class DocumentsManager {
     const response = await API.get(`/documents/${id}`);
     return response.data;
   }
+
+  static async createDocument(titleInput, authorInput, dateInput) {
+    const response = await API.post('/documents', { title: titleInput, author: authorInput, dateCreated: dateInput });
+    return response.data;
+  }
 }

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import strftime from 'strftime';
-import { PagesManager, DocumentsManager } from '../../services';
+import { PagesManager, DocumentsManager, UiManager } from '../../services';
 import CreatePage from '../CreatePage';
 
 const ShowDocument = ({ showPages }) => {
@@ -19,14 +19,17 @@ const ShowDocument = ({ showPages }) => {
     });
   }, [documentSlug, createPage]);
 
-  const handleSubmitCreatePage = (e) => {
+  const handleSubmitCreatePage = async (e) => {
     e.preventDefault();
     const text = e.target.formText.value;
 
-    PagesManager.createPage((documentPages.length + 2), text, documentInfos.id).then((data) => {
-      console.log(data);
+    try {
+      await PagesManager.createPage((documentPages.length + 1), text, documentInfos.id);
       setCreatePage(false);
-    });
+      UiManager.openNotification('success', 'Page created 😉');
+    } catch (error) {
+      UiManager.openNotification('warning', 'Something went wrong...');
+    }
   };
 
   const handleClick = () => {

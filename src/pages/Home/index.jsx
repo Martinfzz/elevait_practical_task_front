@@ -60,12 +60,11 @@ const Home = () => {
           <Button variant="success" className="float-end rounded-circle" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
-        {createDocument && (
         <CreateDocument
           submitCreateDocument={handleSubmitCreateDocument}
-          cancelCreateDocument={handleCancelCreateDocument}
+          show={createDocument}
+          onHide={handleCancelCreateDocument}
         />
-        )}
       </Card>
     </>
   );

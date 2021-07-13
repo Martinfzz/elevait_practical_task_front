@@ -49,7 +49,7 @@ const Home = () => {
           <div className="d-flex flex-wrap">
             {nbDocuments.map((element) => <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3"><Button key={element.id} variant="warning">{element.title}</Button></Link>)}
           </div>
-          <Button variant="success" className="float-end" onClick={handleClick}>+</Button>
+          <Button variant="success" className="float-end rounded-circle" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
         {createDocument && (

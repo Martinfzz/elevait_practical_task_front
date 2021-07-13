@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 
 const CreatePage = ({ submitCreatePage, cancelCreatePage }) => (
   <div id="createDocument">
-    <Button variant="danger" type="button" className="float-end me-3" onClick={cancelCreatePage}>
+    <Button variant="danger" type="button" className="float-end me-3 rounded-circle" onClick={cancelCreatePage}>
       X
     </Button>
     <Form onSubmit={(e) => submitCreatePage(e)} className="mt-5 w-75 mx-auto">

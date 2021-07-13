@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 
 const CreateDocument = ({ submitCreateDocument, cancelCreateDocument }) => (
   <div id="createDocument">
-    <Button variant="danger" type="button" className="float-end me-3" onClick={cancelCreateDocument}>
+    <Button variant="danger" type="button" className="float-end me-3 rounded-circle" onClick={cancelCreateDocument}>
       X
     </Button>
     <Form onSubmit={(e) => submitCreateDocument(e)} className="mt-5 w-75 mx-auto">

@@ -64,7 +64,7 @@ const ShowDocument = ({ showPages }) => {
             <br />
             {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info" className="me-2">{element.pageNr}</Button></Link>)}
           </Card.Text>
-          {showPages && <Button variant="success" className="float-end" onClick={handleClick}>+</Button>}
+          {showPages && <Button variant="success" className="float-end rounded-circle" onClick={handleClick}>+</Button>}
         </Card.Body>
         {createPage && (
         <CreatePage

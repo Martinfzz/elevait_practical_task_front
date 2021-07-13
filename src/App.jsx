@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Document from './pages/Document';
+import Page from './pages/Page';
 
 const App = () => (
   <Router>
@@ -11,8 +12,11 @@ const App = () => (
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/:documentSlug">
+        <Route path="/:documentSlug" exact>
           <Document />
+        </Route>
+        <Route path="/:documentSlug/:pageSlug">
+          <Page />
         </Route>
       </Switch>
     </main>

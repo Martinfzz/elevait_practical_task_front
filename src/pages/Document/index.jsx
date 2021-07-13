@@ -5,18 +5,18 @@ import ShowDocument from '../../components/ShowDocument';
 
 const Document = () => {
   const { documentSlug } = useParams();
-  const [document, setDocument] = useState({});
-  const [pages, setPages] = useState([]);
+  const [documentInfos, setDocumentInfos] = useState({});
+  const [documentPages, setDocumentPages] = useState([]);
 
   useEffect(() => {
     DocumentsManager.showDocument(documentSlug).then((data) => {
-      setDocument(data.document);
-      setPages(data.pages);
+      setDocumentInfos(data.document);
+      setDocumentPages(data.pages);
     });
   }, [documentSlug]);
 
   return (
-    <ShowDocument documentInfos={document} documentPages={pages} />
+    <ShowDocument documentInfos={documentInfos} documentPages={documentPages} showPages={false} />
   );
 };
 

@@ -6,7 +6,7 @@ export default class PagesManager {
     return response.data;
   }
 
-  static async showPages(id) {
+  static async showPage(id) {
     const response = await API.get(`/pages/${id}`);
     return response.data;
   }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { DocumentsManager } from '../../services';
+import { DocumentsManager, UiManager } from '../../services';
 import CreateDocument from '../../components/CreateDocument';
 import play from '../../assets/images/play.svg';
 
@@ -21,16 +21,19 @@ const Home = () => {
     setCreateDocument(true);
   };
 
-  const handleSubmitCreateDocument = (e) => {
+  const handleSubmitCreateDocument = async (e) => {
     e.preventDefault();
     const title = e.target.formTitle.value;
     const author = e.target.formAuthor.value;
     const date = e.target.formDate.value;
 
-    DocumentsManager.createDocument(title, author, date).then((data) => {
-      console.log(data);
+    try {
+      await DocumentsManager.createDocument(title, author, date);
       setCreateDocument(false);
-    });
+      UiManager.openNotification('success', 'Document created 😉');
+    } catch (error) {
+      UiManager.openNotification('warning', 'Something went wrong...');
+    }
   };
 
   const handleCancelCreateDocument = () => {

@@ -52,12 +52,12 @@ const Home = () => {
               <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3">
                 <Button key={element.id} variant="warning" className="w-100">
                   {element.title}
-                  <img src={play} alt="right arrow to access selected document" height="20px" className="float-end pt-1" />
+                  <img src={play} alt="right arrow to access selected document" height="20px" className="float-right pt-1" />
                 </Button>
               </Link>
             ))}
           </div>
-          <Button variant="success" className="float-end rounded-circle" onClick={handleClick}>+</Button>
+          <Button variant="success" className="float-right rounded-circle" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
         <CreateDocument

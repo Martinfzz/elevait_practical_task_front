@@ -13,7 +13,7 @@ const CreateDocument = ({
       centered
     >
       <Modal.Header closeButton />
-      <Form onSubmit={(e) => submitCreateDocument(e)} className="mt-5 w-75 mx-auto">
+      <Form onSubmit={(e) => submitCreateDocument(e)} className="mt-3 w-75 mx-auto">
         <Form.Group controlId="formTitle">
           <Form.Label>Title</Form.Label>
           <Form.Control type="text" />
@@ -27,7 +27,7 @@ const CreateDocument = ({
           <Form.Control type="date" />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="float-right my-5">
           Create
         </Button>
       </Form>

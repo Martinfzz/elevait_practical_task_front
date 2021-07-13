@@ -60,7 +60,9 @@ const ShowDocument = ({ showPages }) => {
           </Card.Text>
           <Card.Text>
             Pages:
-            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info">{element.pageNr}</Button></Link>)}
+            <br />
+            <br />
+            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info" className="me-2">{element.pageNr}</Button></Link>)}
           </Card.Text>
           {showPages && <Button variant="success" className="float-end" onClick={handleClick}>+</Button>}
         </Card.Body>

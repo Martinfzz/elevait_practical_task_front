@@ -1,22 +1,27 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 
-const CreatePage = ({ submitCreatePage, cancelCreatePage }) => (
+const CreatePage = ({ submitCreatePage, show, onHide }) => (
   <div id="createDocument">
-    <Button variant="danger" type="button" className="float-end me-3" onClick={cancelCreatePage}>
-      X
-    </Button>
-    <Form onSubmit={(e) => submitCreatePage(e)} className="mt-5 w-75 mx-auto">
-      <Form.Group controlId="formText">
-        <Form.Label>Text</Form.Label>
-        <Form.Control type="textarea" />
-      </Form.Group>
+    <Modal
+      show={show}
+      onHide={onHide}
+      size="lg"
+      centered
+    >
+      <Modal.Header closeButton />
+      <Form onSubmit={(e) => submitCreatePage(e)} className="mt-3 w-75 mx-auto">
+        <Form.Group controlId="formText">
+          <Form.Label>Text</Form.Label>
+          <Form.Control as="textarea" rows={3} />
+        </Form.Group>
 
-      <Button variant="primary" type="submit">
-        Create
-      </Button>
-    </Form>
+        <Button variant="primary" type="submit" className="float-right my-3">
+          Add Page
+        </Button>
+      </Form>
+    </Modal>
   </div>
 );
 

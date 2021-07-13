@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import strftime from 'strftime';
 import { PagesManager, DocumentsManager } from '../../services';
 import CreatePage from '../CreatePage';
 
@@ -49,25 +50,28 @@ const ShowDocument = ({ showPages }) => {
             {documentInfos.title}
           </Card.Title>
           <Card.Text>
-            author:
+            Author:
             {' '}
             {documentInfos.author}
           </Card.Text>
           <Card.Text>
-            date:
+            Date:
             {' '}
-            {documentInfos.dateCreated}
+            {strftime('%F', new Date(documentInfos.dateCreated))}
           </Card.Text>
           <Card.Text>
             Pages:
-            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info">{element.pageNr}</Button></Link>)}
+            <br />
+            <br />
+            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }}><Button variant="info" className="mr-2">{element.pageNr}</Button></Link>)}
           </Card.Text>
-          {showPages && <Button variant="success" className="float-end" onClick={handleClick}>+</Button>}
+          {showPages && <Button variant="success" className="float-right rounded-circle" onClick={handleClick}>+</Button>}
         </Card.Body>
         {createPage && (
         <CreatePage
           submitCreatePage={handleSubmitCreatePage}
-          cancelCreatePage={handleCancelCreatePage}
+          show={createPage}
+          onHide={handleCancelCreatePage}
         />
         )}
       </Card>

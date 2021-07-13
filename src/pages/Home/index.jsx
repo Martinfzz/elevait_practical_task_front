@@ -3,6 +3,7 @@ import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { DocumentsManager } from '../../services';
 import CreateDocument from '../../components/CreateDocument';
+import play from '../../assets/images/play.svg';
 
 const Home = () => {
   const [nbDocuments, setNbDocuments] = useState({});
@@ -47,17 +48,23 @@ const Home = () => {
             {nbDocuments.length}
           </Card.Title>
           <div className="d-flex flex-wrap">
-            {nbDocuments.map((element) => <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3"><Button key={element.id} variant="warning">{element.title}</Button></Link>)}
+            {nbDocuments.map((element) => (
+              <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3">
+                <Button key={element.id} variant="warning" className="w-100">
+                  {element.title}
+                  <img src={play} alt="right arrow to access selected document" height="20px" className="float-right pt-1" />
+                </Button>
+              </Link>
+            ))}
           </div>
-          <Button variant="success" className="float-end" onClick={handleClick}>+</Button>
+          <Button variant="success" className="float-right rounded-circle mt-5" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
-        {createDocument && (
         <CreateDocument
           submitCreateDocument={handleSubmitCreateDocument}
-          cancelCreateDocument={handleCancelCreateDocument}
+          show={createDocument}
+          onHide={handleCancelCreateDocument}
         />
-        )}
       </Card>
     </>
   );

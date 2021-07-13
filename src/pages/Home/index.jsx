@@ -52,8 +52,8 @@ const Home = () => {
           </Card.Title>
           <div className="d-flex flex-wrap">
             {nbDocuments.map((element) => (
-              <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3">
-                <Button key={element.id} variant="warning" className="w-100">
+              <Link to={{ pathname: `/${element.id}` }} className="w-100 mb-3" key={element.id}>
+                <Button variant="warning" className="w-100">
                   {element.title}
                   <img src={play} alt="right arrow to access selected document" height="20px" className="float-right pt-1" />
                 </Button>
@@ -63,12 +63,12 @@ const Home = () => {
           <Button variant="success" className="float-right rounded-circle mt-5" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
-        <CreateDocument
-          submitCreateDocument={handleSubmitCreateDocument}
-          show={createDocument}
-          onHide={handleCancelCreateDocument}
-        />
       </Card>
+      <CreateDocument
+        submitCreateDocument={handleSubmitCreateDocument}
+        show={createDocument}
+        onHide={handleCancelCreateDocument}
+      />
     </>
   );
 };

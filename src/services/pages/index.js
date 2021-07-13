@@ -1,13 +1,13 @@
 import API from '../api';
 
 export default class PagesManager {
-  static async indexPages() {
-    const response = await API.get('/pages');
+  static async showPage(id) {
+    const response = await API.get(`/pages/${id}`);
     return response.data;
   }
 
-  static async showPage(id) {
-    const response = await API.get(`/pages/${id}`);
+  static async createPage(newPage, textInput, documentId) {
+    const response = await API.post('/pages', { pageNr: newPage, text: textInput, document_id: documentId });
     return response.data;
   }
 }

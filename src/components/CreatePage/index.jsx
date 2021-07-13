@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
+import CustomButton from '../CustomButton';
 
 const CreatePage = ({ submitCreatePage, show, onHide }) => (
   <div id="createDocument">
@@ -17,9 +18,7 @@ const CreatePage = ({ submitCreatePage, show, onHide }) => (
           <Form.Control as="textarea" rows={3} />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="float-right my-3">
-          Add Page
-        </Button>
+        <CustomButton color="primary" text="Add Page" buttonClass="float-right my-3" />
       </Form>
     </Modal>
   </div>

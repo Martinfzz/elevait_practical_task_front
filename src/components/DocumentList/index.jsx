@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import play from '../../assets/images/play.svg';
+import CustomButton from '../CustomButton';
 
 const DocumentList = ({ data, addDocument }) => (
   <Card style={{ width: '25rem' }} className="mx-auto mt-5 border border-warning">
@@ -22,7 +23,7 @@ const DocumentList = ({ data, addDocument }) => (
           </Link>
         ))}
       </div>
-      <Button variant="success" className="float-right rounded-circle mt-5" onClick={addDocument}>+</Button>
+      <CustomButton color="success" text="+" buttonClass="float-right rounded-circle mt-5" onClick={addDocument} />
     </Card.Body>
   </Card>
 );

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import strftime from 'strftime';
 import { PagesManager, DocumentsManager, UiManager } from '../../services';
 import CreatePage from '../CreatePage';
+import CustomButton from '../CustomButton';
 
 const ShowDocument = ({ showPages }) => {
   const { documentSlug } = useParams();
@@ -66,9 +67,9 @@ const ShowDocument = ({ showPages }) => {
             Pages:
             <br />
             <br />
-            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }} key={element.id}><Button variant="info" className="mr-2">{element.pageNr}</Button></Link>)}
+            {documentPages.map((element) => <Link to={{ pathname: `/${documentInfos.id}/${element.id}` }} key={element.id}><CustomButton color="info" text={element.pageNr} buttonClass="mr-2" /></Link>)}
           </Card.Text>
-          {showPages && <Button variant="success" className="float-right rounded-circle" onClick={handleClick}>+</Button>}
+          {showPages && <CustomButton color="success" text="+" buttonClass="float-right rounded-circle" onClick={handleClick} />}
         </Card.Body>
       </Card>
       {createPage && (

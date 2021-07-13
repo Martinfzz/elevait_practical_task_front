@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Form, Button, Modal } from 'react-bootstrap';
+import { Form, Modal } from 'react-bootstrap';
+import CustomButton from '../CustomButton';
 
 const CreateDocument = ({ submitCreateDocument, show, onHide }) => (
   <div id="createDocument">
@@ -25,9 +26,7 @@ const CreateDocument = ({ submitCreateDocument, show, onHide }) => (
           <Form.Control type="date" />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="float-right my-3">
-          Create
-        </Button>
+        <CustomButton color="primary" text="Create" buttonClass="float-right my-3" />
       </Form>
     </Modal>
   </div>

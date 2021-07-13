@@ -14,10 +14,22 @@ const Home = () => {
       setNbDocuments(data);
       setIsFetched(true);
     });
-  }, []);
+  }, [createDocument]);
 
   const handleClick = () => {
     setCreateDocument(true);
+  };
+
+  const handleSubmitCreateDocument = (e) => {
+    e.preventDefault();
+    const title = e.target.formTitle.value;
+    const author = e.target.formAuthor.value;
+    const date = e.target.formDate.value;
+
+    DocumentsManager.createDocument(title, author, date).then((data) => {
+      console.log(data);
+      setCreateDocument(false);
+    });
   };
 
   return (
@@ -37,7 +49,7 @@ const Home = () => {
         </Card.Body>
         )}
       </Card>
-      {createDocument && <CreateDocument />}
+      {createDocument && <CreateDocument submitCreateDocument={handleSubmitCreateDocument} />}
     </>
   );
 };

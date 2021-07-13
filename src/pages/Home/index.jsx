@@ -32,6 +32,10 @@ const Home = () => {
     });
   };
 
+  const handleCancelCreateDocument = () => {
+    setCreateDocument(false);
+  };
+
   return (
     <>
       <Card style={{ width: '25rem' }} className="mx-auto mt-5 border border-warning">
@@ -48,8 +52,13 @@ const Home = () => {
           <Button variant="success" className="float-end" onClick={handleClick}>+</Button>
         </Card.Body>
         )}
+        {createDocument && (
+        <CreateDocument
+          submitCreateDocument={handleSubmitCreateDocument}
+          cancelCreateDocument={handleCancelCreateDocument}
+        />
+        )}
       </Card>
-      {createDocument && <CreateDocument submitCreateDocument={handleSubmitCreateDocument} />}
     </>
   );
 };

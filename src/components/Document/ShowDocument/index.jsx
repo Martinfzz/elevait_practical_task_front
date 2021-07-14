@@ -42,13 +42,13 @@ const ShowDocument = ({ showPages }) => {
   };
 
   return (
-    <div className="text-center mt-5">
+    <div className="text-center mt-5 mx-3">
       <h3>
         Document
         {' '}
         {documentInfos.id}
       </h3>
-      <Card style={{ width: '25rem' }} className="mx-auto mt-3 border border-warning">
+      <Card style={{ maxWidth: '25rem' }} className="mx-auto mt-3 border border-warning">
         <Card.Body>
           <Card.Title className="mb-3 text-center font-weight-bold">
             {documentInfos.title}

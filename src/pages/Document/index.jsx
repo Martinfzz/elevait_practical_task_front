@@ -1,5 +1,5 @@
 import React from 'react';
-import ShowDocument from '../../components/ShowDocument';
+import ShowDocument from '../../components/Document/ShowDocument';
 
 const Document = () => (
   <ShowDocument showPages />

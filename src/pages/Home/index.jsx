@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DocumentsManager, UiManager } from '../../services';
-import CreateDocument from '../../components/CreateDocument';
-import DocumentList from '../../components/DocumentList';
+import CreateDocument from '../../components/Document/CreateDocument';
+import DocumentList from '../../components/Document/DocumentList';
 
 const Home = () => {
   const [nbDocuments, setNbDocuments] = useState({});

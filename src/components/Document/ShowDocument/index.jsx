@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import strftime from 'strftime';
-import { PagesManager, DocumentsManager, UiManager } from '../../services';
-import CreatePage from '../CreatePage';
-import CustomButton from '../CustomButton';
+import { PagesManager, DocumentsManager, UiManager } from '../../../services';
+import CreatePage from '../../Page/CreatePage';
+import CustomButton from '../../CustomComponents/CustomButton';
 
 const ShowDocument = ({ showPages }) => {
   const { documentSlug } = useParams();

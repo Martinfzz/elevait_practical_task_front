@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Form } from 'react-bootstrap';
-import CustomButton from '../CustomButton';
-import CustomModal from '../CustomModal';
-import FormGroup from '../FormGroup';
+import CustomButton from '../../CustomComponents/CustomButton';
+import CustomModal from '../../CustomComponents/CustomModal';
+import FormGroup from '../../CustomComponents/FormGroup';
 
 const CreateDocument = ({ submitCreateDocument, show, onHide }) => (
   <div id="createDocument">

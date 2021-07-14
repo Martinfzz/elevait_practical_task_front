@@ -2,8 +2,8 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import play from '../../assets/images/play.svg';
-import CustomButton from '../CustomButton';
+import play from '../../../assets/images/play.svg';
+import CustomButton from '../../CustomComponents/CustomButton';
 
 const DocumentList = ({ data, addDocument }) => (
   <Card style={{ width: '25rem' }} className="mx-auto mt-5 border border-warning">

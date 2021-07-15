@@ -1,14 +1,27 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './pages/Home';
+import Document from './pages/Document';
+import Page from './pages/Page';
 
 const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <p>
-        Edit
-        and save to reload.
-      </p>
-    </header>
-  </div>
+  <Router>
+    <main>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/:documentSlug" exact>
+          <Document />
+        </Route>
+        <Route path="/:documentSlug/:pageSlug">
+          <Page />
+        </Route>
+      </Switch>
+    </main>
+  </Router>
+
 );
 
 export default App;

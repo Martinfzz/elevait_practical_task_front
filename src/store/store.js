@@ -1,4 +1,4 @@
-import { createStore } from 'react-redux';
+import { createStore } from 'redux';
 import documentReducer from './document/documentReducer';
 
 const store = createStore(

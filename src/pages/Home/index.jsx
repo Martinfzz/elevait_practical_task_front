@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { DocumentsManager, UiManager } from '../../services';
 import CreateDocument from '../../components/Document/CreateDocument';
 import DocumentList from '../../components/Document/DocumentList';
 
 const Home = () => {
-  const [nbDocuments, setNbDocuments] = useState({});
-  const [isFetched, setIsFetched] = useState(false);
+  const isFetched = useSelector((registerStore) => registerStore.loaded);
+  const nbDocuments = useSelector((registerStore) => registerStore.documents);
   const [createDocument, setCreateDocument] = useState(false);
 
   useEffect(() => {
-    DocumentsManager.indexDocuments().then((data) => {
-      setNbDocuments(data);
-      setIsFetched(true);
-    });
+    DocumentsManager.indexDocuments();
   }, [createDocument]);
 
   const handleClick = () => {

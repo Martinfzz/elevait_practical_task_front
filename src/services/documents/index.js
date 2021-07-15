@@ -1,9 +1,23 @@
+import store from '../../store/store';
+import {
+  documentFetchRequest,
+  documentFetchRequestFailed,
+  documentFetched,
+  // documentSelected,
+} from '../../store';
 import API from '../api';
 
 export default class DocumentsManager {
   static async indexDocuments() {
-    const response = await API.get('/documents');
-    return response.data;
+    store.dispatch(documentFetchRequest());
+    try {
+      const response = await API.get('/documents');
+      store.dispatch(documentFetched(response.data));
+      return response.data;
+    } catch (error) {
+      store.dispatch(documentFetchRequestFailed(error.message));
+      return error.message;
+    }
   }
 
   static async showDocument(id) {

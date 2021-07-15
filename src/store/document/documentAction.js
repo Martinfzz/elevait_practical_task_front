@@ -18,8 +18,9 @@ export const documentFetchRequestFailed = (error) => ({
   error,
 });
 
-export const documentFetched = () => ({
+export const documentFetched = (data) => ({
   type: DOCUMENT_FETCHED,
+  data,
 });
 
 export const documentSelected = (documentTitle, documentAuthor, documentDate, documentPages) => ({
